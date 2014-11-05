@@ -1,17 +1,34 @@
 require 'spec_helper'
 
-feature "User visits the home page" do
-  # As a User
-  # I want to see all the posts on one page
-  # So that I know what healthy things to eat
-  #
-  # Acceptance Criteria:
-  #
-  # * I see a title of the healthy thing to eat and a small description
-  # * I see all of the posts listed from the week
+feature "user signs up", %q{
+  As a User
+  I want to register an account
+  So that I can have full interaction priveleges
+} do
 
-  it "displays a healthy eat" do
-    visit '/'
-    expect(page).to have_content "All The Events"
+  # Acceptance Criteria
+
+  # - I must provide my email, a password, and a password confirmation
+  # - I see an error message if I do not provide all required information
+
+  scenario "User signs up with valid information" do
+    visit new_user_registration_path
+
+    fill_in "Email", with: "user@gmail.com"
+    fill_in "Password", with: "password"
+    fill_in "Password", with: "password"
+    click_on "Sign up"
+
+    expect(page).to have_content "You have signed up successfully."
   end
+
+  scenario "User signs up without valid information" do
+    visit new_user_registration_path
+
+    click_on "Sign up"
+
+    expect(page).to have_content "Email can't be blank"
+    expect(page).to have_content "Password can't be blank"
+  end
+
 end
