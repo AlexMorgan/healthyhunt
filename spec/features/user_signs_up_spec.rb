@@ -20,7 +20,7 @@ feature "user signs up", %q{
     fill_in "Password confirmation", with: "password"
     click_on "Sign up"
 
-    expect(page).to have_content "You will receive an email with instructions about how to confirm your account in a few minutes."
+    expect(page).to have_content "Welcome! You have signed up successfully"
   end
 
   scenario "User signs up without valid information" do
