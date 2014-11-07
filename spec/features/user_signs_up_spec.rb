@@ -15,8 +15,9 @@ feature "user signs up", %q{
     visit new_user_registration_path
 
     fill_in "Email", with: "user@gmail.com"
+    fill_in "Username", with: "username09"
     fill_in "Password", with: "password"
-    fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "password"
     click_on "Sign up"
 
     expect(page).to have_content "You will receive an email with instructions about how to confirm your account in a few minutes."
@@ -29,6 +30,7 @@ feature "user signs up", %q{
 
     expect(page).to have_content "Email can't be blank"
     expect(page).to have_content "Password can't be blank"
+    expect(page).to have_content "Username can't be blank"
   end
 
 end
