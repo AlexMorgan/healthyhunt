@@ -4,4 +4,10 @@ FactoryGirl.define do
     email "username@gmail.com"
     password "password"
   end
+
+  factory :user do
+    sequence(:title) { |n| "Healthy Alternative #{n}" }
+    url "http://www.kimshealthyeats.com/"
+    description "This is a great alternative for bacon"
+  end
 end
