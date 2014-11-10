@@ -30,7 +30,7 @@ gem 'spring',        group: :development
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 3.0.0'
   gem 'capybara'
   gem "factory_girl_rails", "~> 4.0"
   gem 'launchy'

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature "user signs up", %q{
   As a User
@@ -33,4 +33,14 @@ feature "user signs up", %q{
     expect(page).to have_content "Username can't be blank"
   end
 
+  scenario "User signs in with their username and password" do
+    user = FactoryGirl.create(:user)
+
+    visit new_user_registration_path
+    fill_in 'Username', with: user.username
+    fill_in 'Password', with: user.password
+    click_button 'Sign in'
+
+    expect(page).to have_content "Signed in successfully."
+  end
 end
