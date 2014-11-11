@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   default_url_options :host => "localhost:3000"
   root "pages#home"
 
+  resources :posts
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

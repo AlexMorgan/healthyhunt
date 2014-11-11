@@ -33,14 +33,14 @@ feature "user signs up", %q{
     expect(page).to have_content "Username can't be blank"
   end
 
-  scenario "User signs in with their username and password" do
-    user = FactoryGirl.create(:user)
+  scenario "User signs in with their username and password"
+  #   user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-    fill_in 'Username', with: user.username
-    fill_in 'Password', with: user.password
-    click_button 'Sign in'
+  #   visit new_user_session_path
+  #   fill_in 'Username', with: user.username
+  #   fill_in 'Password', with: user.password
+  #   click_button 'Sign in'
 
-    expect(page).to have_content "Signed in successfully."
-  end
+  #   expect(page).to have_content "Signed in successfully."
+  # end
 end

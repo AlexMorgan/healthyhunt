@@ -6,8 +6,9 @@ FactoryGirl.define do
   end
 
   factory :post do
-    sequence(:title) { |n| "Healthy Alternative #{n}" }
+    sequence(:product_name) { |n| "Healthy Alternative #{n}" }
     url "http://www.kimshealthyeats.com/"
-    description "This is a great alternative for bacon"
+    tagline "This is a great alternative for bacon"
+    upvote_count 0
   end
 end
