@@ -5,7 +5,7 @@ FactoryGirl.define do
     password "password"
   end
 
-  factory :user do
+  factory :post do
     sequence(:title) { |n| "Healthy Alternative #{n}" }
     url "http://www.kimshealthyeats.com/"
     description "This is a great alternative for bacon"
