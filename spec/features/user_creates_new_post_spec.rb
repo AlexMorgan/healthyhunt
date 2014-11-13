@@ -7,8 +7,8 @@ feature "User creates a new health post", %q{
 } do
 
   scenario "User creates a post with valid/required input" do
+    post = FactoryGirl.build(:post)
     user = FactoryGirl.create(:user)
-    post = FactoryGirl.create(:post)
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -16,17 +16,17 @@ feature "User creates a new health post", %q{
     click_on 'Sign in'
 
     visit new_post_path
-    fill_in 'Product Name', with: post.title
+    fill_in 'Product Name', with: post.product_name
     fill_in 'Product URL', with: post.url
-    fill_in 'Tagline', with: post.description
+    fill_in 'Tagline', with: post.tagline
     click_on 'Add Post'
 
     expect(page).to have_content "Your post has been successfully added."
   end
 
   scenario "User creates a post with incomplete input" do
+    post = FactoryGirl.build(:post)
     user = FactoryGirl.create(:user)
-    post = FactoryGirl.create(:post)
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -34,7 +34,7 @@ feature "User creates a new health post", %q{
     click_on 'Sign in'
 
     visit new_post_path
-    fill_in 'Product Name', with: post.title
+    fill_in 'Product Name', with: post.product_name
     click_on 'Add Post'
 
     expect(page).to have_content "URL can't be blank"
@@ -42,8 +42,8 @@ feature "User creates a new health post", %q{
   end
 
   scenario "User enters an invalid URL for a new post" do
+    post = FactoryGirl.build(:post)
     user = FactoryGirl.create(:user)
-    post = FactoryGirl.create(:post)
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -51,9 +51,9 @@ feature "User creates a new health post", %q{
     click_on 'Sign in'
 
     visit new_post_path
-    fill_in 'Product Name', with: post.title
+    fill_in 'Product Name', with: post.product_name
     fill_in 'Product URL', with: 'someinvalidurl'
-    fill_in 'Tagline', with: post.description
+    fill_in 'Tagline', with: post.tagline
     click_on 'Add Post'
 
     expect(page).to have_content "URL is invalid"

@@ -1,0 +1,31 @@
+<h1>Post something new</h1>
+
+<% if @post.errors.any? %>
+  <p> There were errors in your submission </p>
+  <ul>
+    <% @post.errors.each do |key, val| %>
+      <li><%= key.capitalize %> <%= val %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @post do |f|%>
+  <div>
+    <%= f.label :product_name, 'Product Name' %>
+    <%= f.text_field :product_name %>
+  </div>
+
+  <div>
+    <%= f.label :url, 'Product URL' %>
+    <%= f.text_field :url %>
+  </div>
+
+  <div>
+    <%= f.label :tagline %>
+    <%= f.text_field :tagline %>
+  </div>
+
+  <div>
+    <%= f.submit "Add Post" %>
+  </div>
+<% end %>

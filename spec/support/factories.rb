@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
     sequence(:username) { |n| "username#{n}"}
-    email "username@gmail.com"
+    sequence(:email) { |n| "username#{n}@gmail.com" }
     password "password"
   end
 
@@ -10,5 +10,6 @@ FactoryGirl.define do
     url "http://www.kimshealthyeats.com/"
     tagline "This is a great alternative for bacon"
     upvote_count 0
+    user
   end
 end
