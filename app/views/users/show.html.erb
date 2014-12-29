@@ -1,0 +1,13 @@
+<h1>Welcome <em><%= @user.username %></em></h1>
+
+<% if @user.posts.empty? %>
+  <p>You don't have any posts yet!</p>
+  <%= link_to 'Create First Post', new_post_path %>
+<% else %>
+  <% @user.posts.each do |post| %>
+    <div>
+      <h3><%= link_to post.product_name, post.url, target: "_blank" %></h3>
+      <p><%= post.tagline %></p>
+    </div>
+  <% end %>
+<% end %>
