@@ -1,5 +1,6 @@
 <h1>Welcome <em><%= @user.username %></em></h1>
 
+<h2>Your Posts</h2>
 <% if @user.posts.empty? %>
   <p>You don't have any posts yet!</p>
   <%= link_to 'Create First Post', new_post_path %>

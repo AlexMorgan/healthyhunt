@@ -1,0 +1,8 @@
+<h1>Posts</h1>
+
+<% @posts.each do |post| %>
+  <div>
+    <h3><%= link_to post.product_name, post.url, target: "_blank" %></h3>
+    <p><%= post.tagline %></p>
+  </div>
+<% end %>
