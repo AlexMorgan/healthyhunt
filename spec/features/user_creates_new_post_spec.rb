@@ -37,8 +37,8 @@ feature "User creates a new health post", %q{
     fill_in 'Product Name', with: post.product_name
     click_on 'Add Post'
 
-    expect(page).to have_content "URL can't be blank"
-    expect(page).to have_content "Description can't be blank"
+    expect(page).to have_content "Url is not a valid URL"
+    expect(page).to have_content "Tagline can't be blank"
   end
 
   scenario "User enters an invalid URL for a new post" do
@@ -56,7 +56,7 @@ feature "User creates a new health post", %q{
     fill_in 'Tagline', with: post.tagline
     click_on 'Add Post'
 
-    expect(page).to have_content "URL is invalid"
+    expect(page).to have_content "Url is not a valid URL"
   end
 
 end

@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   default_url_options :host => "localhost:3000"
   root "pages#home"
-
   get 'profile', to: 'users#show'
-  resources :posts
+
+  resources :posts do
+    resources :upvotes, only: [:create, :destroy]
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

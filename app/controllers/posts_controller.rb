@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user, only: [:new]
+
   def index
     @posts = Post.all
   end
@@ -15,7 +17,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "Your post has been successfully added."
-      redirect_to post_path(@post)
+      redirect_to root_path
     else
       flash[:notice] = "There were errors in your submission"
       render :new

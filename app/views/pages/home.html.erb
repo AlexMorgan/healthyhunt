@@ -1,7 +1,24 @@
 <h1>Posts</h1>
 
 <% @posts.each do |post| %>
-  <div>
+  <div data-post-id="<%= post.id %>" class="post-content">
+    <% if post.has_upvote_from(current_user)%>
+      <div class="vote">
+      <%= link_to "\u25B2", post_upvote_path(post, post.upvote_from(current_user)),
+        method: :delete,
+        form: { data: { 'upvote-button' => 'delete'} },
+        class: "vote-down" %>
+        <%= post.upvotes.count %>
+      </div>
+    <% else %>
+      <div class='vote'>
+        <%= link_to "\u25B2", post_upvotes_path(post),
+           method: :post,
+           form: { data: {'upvote-button' => 'create'} },
+           class: "vote-up" %>
+        <%= post.upvotes.count %>
+      </div>
+    <% end %>
     <h3><%= link_to post.product_name, post.url, target: "_blank" %></h3>
     <p><%= post.tagline %></p>
   </div>
