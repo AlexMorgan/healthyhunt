@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     if !current_user
-      flash[:notice] = "You muse be signed in to view profile"
+      flash[:notice] = "Please sign in"
       redirect_to new_user_session_path
     end
   end

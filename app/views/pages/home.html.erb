@@ -2,7 +2,7 @@
 
 <% @posts.each do |post| %>
   <div data-post-id="<%= post.id %>" class="post-content col-sm-12">
-    <% if post.has_upvote_from(current_user)%>
+    <% if user_signed_in? && post.has_upvote_from(current_user)%>
       <div class="vote col-sm-1">
       <%= link_to "\u25B2", post_upvote_path(post, post.upvote_from(current_user)),
         method: :delete,
@@ -19,6 +19,7 @@
         <%= post.upvotes.count %>
       </div>
     <% end %>
+
     <div class="col-sm-3">
     <h3><%= link_to post.product_name, post.url, target: "_blank" %></h3>
     <p><%= post.tagline %></p>
