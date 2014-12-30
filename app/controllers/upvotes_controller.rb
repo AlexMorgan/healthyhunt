@@ -12,5 +12,10 @@ class UpvotesController < ApplicationController
   end
 
   def destroy
+    post = Post.find(params[:post_id])
+    current_user.upvotes.destroy(params[:id])
+
+    flash[:notice] = "All evidence of your upvote has been destroyed!"
+    redirect_to :back
   end
 end

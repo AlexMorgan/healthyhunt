@@ -44,6 +44,11 @@
   color: #3498db;
 }
 
+.vote-down:hover {
+  color: #534540 !important;
+  text-decoration: none;
+}
+
 .vote-down {
   color: #3498db !important;
 }
