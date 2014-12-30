@@ -37,6 +37,7 @@
   width: 30px;
   text-align: center;
   border-bottom: 1px solid #bdc3c7;
+  margin-top: 25px;
 }
 
 .vote-up:hover {
