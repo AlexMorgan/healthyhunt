@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
-
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -25,12 +25,26 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
+    @post = Post.find(params[:id])
+
+    if @post.update(post_params)
+      flash[:notice] = "Your post have been successfully updated"
+      redirect_to post_path(@post)
+    else
+      flash[:notice] = "There were errors in your submission"
+      render :edit
+    end
   end
 
   def destroy
+    @post = Post.find(params[:id]).destroy
+
+    flash[:notice] = "#{@post.product_name} has been deleted"
+    redirect_to profile_path(current_user)
   end
 
   private
