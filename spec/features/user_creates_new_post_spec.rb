@@ -9,11 +9,7 @@ feature "User creates a new health post", %q{
   scenario "User creates a post with valid/required input" do
     post = FactoryGirl.build(:post)
     user = FactoryGirl.create(:user)
-
-    visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_on 'Sign in'
+    log_in(user)
 
     visit new_post_path
     fill_in 'Product Name', with: post.product_name
@@ -27,11 +23,7 @@ feature "User creates a new health post", %q{
   scenario "User creates a post with incomplete input" do
     post = FactoryGirl.build(:post)
     user = FactoryGirl.create(:user)
-
-    visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_on 'Sign in'
+    log_in(user)
 
     visit new_post_path
     fill_in 'Product Name', with: post.product_name
@@ -44,11 +36,7 @@ feature "User creates a new health post", %q{
   scenario "User enters an invalid URL for a new post" do
     post = FactoryGirl.build(:post)
     user = FactoryGirl.create(:user)
-
-    visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_on 'Sign in'
+    log_in(user)
 
     visit new_post_path
     fill_in 'Product Name', with: post.product_name
