@@ -16,6 +16,12 @@
   left: 60em;
 }
 
+
+/******************************* Home Page *******************************/
+#postContainer {
+  padding: 0 10%;
+}
+
 .post-content a {
   color: #534540;
   font-weight: 400;
@@ -43,6 +49,10 @@
 .vote-up:hover {
   text-decoration: none;
   color: #3498db;
+}
+
+.vote-up span {
+  color: #534540 !important;
 }
 
 .vote-down:hover {
