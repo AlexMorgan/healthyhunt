@@ -15,7 +15,7 @@ feature "User creates a new health post", %q{
     fill_in 'Product Name', with: post.product_name
     fill_in 'Product URL', with: post.url
     fill_in 'Tagline', with: post.tagline
-    click_on 'Add Post'
+    click_on 'Hunt!'
 
     expect(page).to have_content "Your post has been successfully added."
   end
@@ -27,7 +27,7 @@ feature "User creates a new health post", %q{
 
     visit new_post_path
     fill_in 'Product Name', with: post.product_name
-    click_on 'Add Post'
+    click_on 'Hunt!'
 
     expect(page).to have_content "Url is not a valid URL"
     expect(page).to have_content "Tagline can't be blank"
@@ -42,7 +42,7 @@ feature "User creates a new health post", %q{
     fill_in 'Product Name', with: post.product_name
     fill_in 'Product URL', with: 'someinvalidurl'
     fill_in 'Tagline', with: post.tagline
-    click_on 'Add Post'
+    click_on 'Hunt!'
 
     expect(page).to have_content "Url is not a valid URL"
   end
