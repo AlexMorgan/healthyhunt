@@ -9,12 +9,16 @@ class CommentsController < ApplicationController
       redirect_to post_path(@post)
       flash[:notice] = "Your comment has been submitted"
     else
-      flash[:notice] = "There were errors in your submission"
+      redirect_to post_path(@post)
+      flash[:notice] = "Please make sure your submission is complete"
     end
   end
 
   def destroy
+    @comment = Comment.find(params[:id]).destroy
 
+    flash[:notice] = "Your comment has been deleted"
+    redirect_to post_path(@post)
   end
 
   private
