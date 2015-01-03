@@ -1,1 +1,32 @@
+<h1><%= link_to @post.product_name, @post.url, target: "_blank" %></h1>
+<h5><%= @post.tagline %></h5>
 
+<% if !@comments.nil? %>
+  <h3>Comments</h3>
+  <div class="col-md-12">
+    <% @comments.each do |c| %>
+      <h5><%= c.user.username %></h5><p><%= c.body %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @comment.errors.any? %>
+  <p> There were errors in your submission </p>
+  <ul>
+    <% @comment.errors.each do |key, val| %>
+      <li><%= key.capitalize %> <%= val %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if user_signed_in? %>
+  <div class="col-md-10">
+    <h3>Leave Comment</h3>
+    <%= form_for [@post, @comment] do |f| %>
+      <div>
+        <%= f.text_area :body, placeholder: "Leave a comment" %>
+      </div><br>
+      <%= f.submit "Comment" %>
+    <% end %>
+  </div>
+<% end %>
