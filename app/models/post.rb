@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
   validates_formatting_of :url, using: :url, allow_blank: false
   validates :tagline, presence: true, length: { in: 10..80}
 
+  # creates a method that returns the upvote of the specific post that belongs to the current user
   def upvote_from(user)
     upvotes.find_by(user_id: user.id)
   end
