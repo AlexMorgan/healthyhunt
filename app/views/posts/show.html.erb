@@ -6,6 +6,9 @@
   <div class="col-md-12">
     <% @comments.each do |c| %>
       <h5><%= c.user.username %></h5><p><%= c.body %></p>
+      <% if c.belongs(current_user) %>
+        <%= link_to "Delete", post_comment_path(@post, c), method: :delete, class: "red" %>
+      <% end %>
     <% end %>
   </div>
 <% end %>
