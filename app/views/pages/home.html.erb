@@ -6,7 +6,6 @@
       <% if user_signed_in? && post.has_upvote_from(current_user)%>
         <%= link_to post_upvote_path(post, post.upvote_from(current_user)),
           method: :delete,
-          data: { 'upvote-button' => 'delete'},
           class: "vote-down" do %>
             <div class="vote col-sm-2">
               &#9650;
@@ -16,7 +15,6 @@
       <% else %>
         <%= link_to post_upvotes_path(post),
           method: :post,
-          data: {'upvote-button' => 'create'},
           class: "vote-up" do %>
             <div class='vote col-sm-2'>
               &#9650;

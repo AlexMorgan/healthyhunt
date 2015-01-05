@@ -1,5 +1,5 @@
 $(function(){
-  $('[data-upvote-button="create"]').on('click', function(e) {
+  $('[data-method="post"]').on('click', function(e) {
     e.stopPropagation();
     e.preventDefault();
     // Capture the target of the event
@@ -13,10 +13,11 @@ $(function(){
       dataType: "json",
       success: function(upvote) {
         // Create the String version of the form action
+        // This needs to be fixed, otherwise it could potentially mess with all anchor tages on the page.
+        // Create more posts and make sure
         $downvoteLink = $('a').attr({
           'class': 'vote-down',
           'data-method': 'delete',
-          'data-upvote-button': 'delete',
           'href': $url + '/' + upvote.id,
         });
       } // End success callback
