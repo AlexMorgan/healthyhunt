@@ -4,9 +4,9 @@
   <% @posts.each do |post| %>
     <div data-post-id="<%= post.id %>" class="post-content col-sm-12" data-href="posts/<%= post.id %>">
       <% if user_signed_in? && post.has_upvote_from(current_user)%>
-        <%= link_to post_upvote_path(post, post.upvote_from(current_user)),
+        <%= button_to post_upvote_path(post, post.upvote_from(current_user)),
           method: :delete,
-          form: { data: { 'upvote-button' => 'delete'} },
+          data: { 'upvote-button' => 'delete'},
           class: "vote-down" do %>
             <div class="vote col-sm-2">
               &#9650;
@@ -16,7 +16,7 @@
       <% else %>
         <%= link_to post_upvotes_path(post),
           method: :post,
-          form: { data: {'upvote-button' => 'create'} },
+          data: {'upvote-button' => 'create'},
           class: "vote-up" do %>
             <div class='vote col-sm-2'>
               &#9650;
