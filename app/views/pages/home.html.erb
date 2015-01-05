@@ -8,7 +8,7 @@
           method: :delete,
           class: "vote-down" do %>
             <div class="vote col-sm-2">
-              &#9650;
+              <span>&#9650;</span>
               <span><%= post.upvotes.count %></span>
             </div>
         <% end %> <!-- end link_to -->
@@ -17,7 +17,7 @@
           method: :post,
           class: "vote-up" do %>
             <div class='vote col-sm-2'>
-              &#9650;
+              <span>&#9650;</span>
               <span><%= post.upvotes.count %></span>
             </div>
         <% end %> <!-- end link_to -->

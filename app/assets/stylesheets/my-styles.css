@@ -16,6 +16,10 @@
   left: 60em;
 }
 
+.block {
+  display: block;
+}
+
 
 /******************************* Home Page *******************************/
 #postContainer {

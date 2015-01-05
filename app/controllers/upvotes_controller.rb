@@ -6,8 +6,9 @@ class UpvotesController < ApplicationController
 
     respond_to do |format|
       if upvote.save
+        upvote_count = post.upvotes.count
         format.html { redirect_to :back, notice: "You have upvoted!" }
-        format.json { render json: upvote }
+        format.json { render json: {upvote: upvote, count: upvote_count } }
       else
         format.html { redirect_to :back }
         format.json { render json: upvote.errors, status: :unprocessable_entity }
