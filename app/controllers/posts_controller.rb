@@ -45,8 +45,17 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id]).destroy
 
-    flash[:notice] = "#{@post.product_name} has been deleted"
-    redirect_to profile_path(current_user)
+    respond_to do |format|
+      # Respond the same way we were before if the request format is html
+      format.html do
+        flash[:notice] = "#{@post.product_name} has been deleted"
+        redirect_to profile_path(current_user)
+      end
+
+      # Respond with a "204 No Content" to signify that the request has been
+      # fulfilled
+      format.json { render json: @post }
+    end
   end
 
   private
