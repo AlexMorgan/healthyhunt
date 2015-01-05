@@ -2,12 +2,16 @@ class UpvotesController < ApplicationController
   before_action :authenticate_user, only: [:create, :destroy]
   def create
     post = Post.find(params[:post_id])
-    meow = current_user.upvotes.build(post: post)
+    upvote = current_user.upvotes.build(post: post)
 
-    if meow.save
-      redirect_to :back, notice: "You have upvoted!"
-    else
-      redirect_to :back
+    respond_to do |format|
+      if upvote.save
+        format.html { redirect_to :back, notice: "You have upvoted!" }
+        format.json { render json: upvote }
+      else
+        format.html { redirect_to :back }
+        format.json { render json: upvote.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -19,3 +23,5 @@ class UpvotesController < ApplicationController
     redirect_to :back
   end
 end
+
+
