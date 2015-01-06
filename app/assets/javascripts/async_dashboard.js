@@ -1,5 +1,6 @@
 $(function(){
   $('[data-user-post-id]').on('click', '[data-method="delete"]', function(e){
+    // Prevent natural behavior of link - For some reason .preventDefault by itself doesn't work
     e.stopPropagation();
     e.preventDefault();
 

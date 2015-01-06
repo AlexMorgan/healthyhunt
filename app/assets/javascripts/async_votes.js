@@ -54,9 +54,9 @@ $(function(){
     });
   });
 
-  function createUpvoteBtn(upvoteCount) {
+  function createUpvoteBtn(count) {
     $newButton = $('<div>').attr('class', 'vote col-sm-2');
-    $newSpan = $('<span>').append(upvoteCount);
+    $newSpan = $('<span>').append(count);
     $upvoteChar = $('<span>').attr('class', 'block').append('&#9650;');
     $newButton.append($upvoteChar);
     $newButton.append($newSpan);
