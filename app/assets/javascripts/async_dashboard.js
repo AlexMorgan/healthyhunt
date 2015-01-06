@@ -14,14 +14,7 @@ $(function(){
         // Remove post from Dashboard
         $target.parent().remove();
 
-        // Create flash notice
-        $flash = $('<div>').attr('class', 'flash center');
-        $flashNotice = $('<div>').attr('class', 'alert alert-notice');
-        $flashNotice.append('You deleted ' + post.product_name + ' from your posts.')
-        $flash.append($flashNotice);
-
-        // Insert flash notice after navbar
-        $('.navbar').after($flash);
+        createFlashNotice('You deleted ' + post.product_name + ' from your posts.');
       } // end ajax success
     });
   }); // end data-user-post-id
