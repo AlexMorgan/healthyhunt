@@ -50,7 +50,7 @@ $(function(){
         $voteLink = $('<a>').attr({
           'class': 'vote-up',
           'data-method': 'post',
-          'href': '/posts/' + data.post.id + '/upvotes',
+          'href': '/posts/' + data.post.id + '/votes',
         });
 
         createUpvoteBtn(upvoteCount);

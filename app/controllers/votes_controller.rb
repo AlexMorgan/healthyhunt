@@ -1,8 +1,7 @@
 class VotesController < ApplicationController
   before_action :authenticate_user, only: [:create, :destroy]
   def create
-    @context = context
-    # upvote = current_user.votes.build(post: post)
+    @context = Vote.context(params)
 
     vote = @context.votes.new
     vote.user_id = current_user.id
@@ -10,7 +9,7 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if vote.save
-        upvote_count = context.votes.count
+        upvote_count = @context.votes.count
         format.html { redirect_to :back, notice: "You have upvoted!" }
         format.json { render json: {upvote: vote, count: upvote_count } }
       else
@@ -21,7 +20,7 @@ class VotesController < ApplicationController
   end
 
   def destroy
-    @context = context
+    @context = Vote.context(params)
     current_user.votes.destroy(params[:id])
 
     respond_to do |format|
@@ -35,16 +34,6 @@ class VotesController < ApplicationController
       # fulfilled
       upvote_count = @context.votes.count
       format.json { render json: {post: @context, count: upvote_count} }
-    end
-  end
-
-  def context
-    if params[:post_id]
-      id = params[:post_id]
-      Post.find(params[:post_id])
-    else
-      id = params[:comment_id]
-      Comment.find(params[:comment_id])
     end
   end
 end
