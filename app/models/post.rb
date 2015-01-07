@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
     dependent: :destroy
   has_many :comments,
     dependent: :destroy
+  has_many :votes,
+    as: :voteable,
+    dependent: :destroy
 
 
   validates :product_name, presence: true, uniqueness: true

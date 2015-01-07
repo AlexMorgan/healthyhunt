@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :posts
+  has_many :votes
   has_many :upvotes,
     dependent: :destroy
   has_many :comments,
