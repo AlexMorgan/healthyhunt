@@ -4,21 +4,21 @@
   <% @posts.each do |post| %>
     <div data-post-id="<%= post.id %>" class="post-content col-sm-12" data-href="posts/<%= post.id %>">
       <% if user_signed_in? && post.has_upvote_from(current_user)%>
-        <%= link_to post_upvote_path(post, post.upvote_from(current_user)),
+        <%= link_to post_vote_path(post, post.upvote_from(current_user)),
           method: :delete,
           class: "vote-down" do %>
             <div class="vote col-sm-2">
               <span>&#9650;</span>
-              <span><%= post.upvotes.count %></span>
+              <span><%= post.votes.count %></span>
             </div>
         <% end %> <!-- end link_to -->
       <% else %>
-        <%= link_to post_upvotes_path(post),
+        <%= link_to post_votes_path(post),
           method: :post,
           class: "vote-up" do %>
             <div class='vote col-sm-2'>
               <span>&#9650;</span>
-              <span><%= post.upvotes.count %></span>
+              <span><%= post.votes.count %></span>
             </div>
         <% end %> <!-- end link_to -->
       <% end %> <!-- end if/else -->

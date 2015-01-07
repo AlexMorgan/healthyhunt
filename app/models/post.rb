@@ -1,7 +1,5 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  has_many :upvotes,
-    dependent: :destroy
   has_many :comments,
     dependent: :destroy
   has_many :votes,
@@ -15,11 +13,11 @@ class Post < ActiveRecord::Base
 
   # creates a method that returns the upvote of the specific post that belongs to the current user
   def upvote_from(user)
-    upvotes.find_by(user_id: user.id)
+    votes.find_by(user_id: user.id)
   end
 
   # Create method to find whether or not signed in user has liked a post
   def has_upvote_from(user)
-    upvotes.find_by(user_id: user.id).present?
+    votes.find_by(user_id: user.id).present?
   end
 end

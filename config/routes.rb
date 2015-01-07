@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   get 'profile', to: 'users#show'
 
   resources :posts do
-    resources :upvotes, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resources :votes, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy] do
+      resources :votes, only: [:create, :destroy]
+    end
   end
 
   # Example of regular route:

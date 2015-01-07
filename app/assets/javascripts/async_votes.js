@@ -24,7 +24,11 @@ $(function(){
         });
 
         createUpvoteBtn(upvoteCount);
-      } // End success callback
+        createFlashNotice('You have upvoted!');
+      }, // End success callback
+      error: function(data) {
+        console.log(data);
+      }
     });
   }); // End of data-method="post"
 
@@ -50,6 +54,7 @@ $(function(){
         });
 
         createUpvoteBtn(upvoteCount);
+        createFlashNotice('Your upvote was removed');
       }
     });
   });
