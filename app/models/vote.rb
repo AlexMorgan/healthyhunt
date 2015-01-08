@@ -5,7 +5,7 @@ class Vote < ActiveRecord::Base
 
   # Get the context of the vote (Is it a post-vote or a comment-vote)
   def self.context(params)
-    if params[:post_id]
+    if !params[:comment_id]
       id = params[:post_id]
       Post.find(params[:post_id])
     else

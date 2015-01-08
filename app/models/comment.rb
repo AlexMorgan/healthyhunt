@@ -12,4 +12,13 @@ class Comment < ActiveRecord::Base
   def belongs(user)
     self.user == user
   end
+
+  def upvote_from(user)
+    votes.find_by(user_id: user.id)
+  end
+
+  # Create method to find whether or not signed in user has liked a post
+  def has_upvote_from(user)
+    votes.find_by(user_id: user.id).present?
+  end
 end

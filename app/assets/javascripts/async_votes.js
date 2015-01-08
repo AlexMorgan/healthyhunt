@@ -47,10 +47,16 @@ $(function(){
       success: function(data) {
         upvoteCount = data.count
 
+        if (data.post.body) {  // Tests to see if the incoming data is from a comment or a post (polymorphic association)
+          href = '/posts/' + data.post.post_id + '/comments/' + data.post.id + '/votes';
+        } else {
+          href = '/posts/' + data.post.id + '/votes';
+        }
+
         $voteLink = $('<a>').attr({
           'class': 'vote-up',
           'data-method': 'post',
-          'href': '/posts/' + data.post.id + '/votes',
+          'href': href
         });
 
         createUpvoteBtn(upvoteCount);
