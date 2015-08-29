@@ -24,7 +24,7 @@ $(function(){
         });
 
         createUpvoteBtn(upvoteCount);
-        createFlashNotice('You have upvoted!');
+        // createFlashNotice('You have upvoted!');
       }, // End success callback
       error: function(data) {
         console.log(data);
@@ -60,7 +60,7 @@ $(function(){
         });
 
         createUpvoteBtn(upvoteCount);
-        createFlashNotice('Your upvote was removed');
+        // createFlashNotice('Your upvote was removed');
       }
     });
   });

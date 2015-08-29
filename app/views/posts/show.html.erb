@@ -28,7 +28,9 @@
         <div class="col-sm-4">
           <h5><%= comment.user.username %></h5><p><%= comment.body %></p>
           <% if comment.belongs(current_user) %>
-            <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, class: "red" %>
+            <!-- Fix the eventlistener, event is currently going to the async_votes.js
+            because they are both contained in a data-post-id element -->
+            <!-- <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, class: "red" %> -->
           <% end %>
         </div>
       </div>
