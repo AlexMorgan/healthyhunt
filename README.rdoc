@@ -23,6 +23,11 @@ Things you may want to cover:
 
 * ...
 
+This App is using MailCatcher - Please follow instructions for local dev config:
+ - $ gem install mailcatcher
+ - $ mailcatcher
+ - http://localhost:1080/ (to see incoming email)
+
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
