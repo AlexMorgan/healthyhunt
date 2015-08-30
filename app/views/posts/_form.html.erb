@@ -10,17 +10,17 @@
 <%= form_for @post do |f|%>
   <div>
     <%= f.label :product_name, 'Product Name' %><br>
-    <%= f.text_field :product_name %>
+    <%= f.text_field :product_name, placeholder: "Product Name" %>
   </div>
 
   <div>
     <%= f.label :url, 'Product URL' %><br>
-    <%= f.text_field :url %>
+    <%= f.text_field :url,  placeholder: "URL" %>
   </div>
 
   <div>
     <%= f.label :tagline %><br>
-    <%= f.text_field :tagline %>
+    <%= f.text_field :tagline,  placeholder: "Tagline" %>
   </div>
 
   <div>

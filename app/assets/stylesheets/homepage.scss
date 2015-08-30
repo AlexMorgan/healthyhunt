@@ -1,3 +1,53 @@
+@import "variables.scss";
+
 nav.navbar.navbar.navbar-fixed-top {
     box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
 }
+
+#signup-form,
+#signin-form {
+  margin-top: 100px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ecf0f1;
+  padding: 10px 30px 50px;
+  text-align: center;
+  h2 {
+    font-weight: 200;
+  }
+
+  label {
+    display: none;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 90%;
+    height: 35px;
+    background-color: #ecf0f1;
+    border: none;
+    font-size: $small-txt;
+    border-bottom: 2px solid $brand-color;
+    padding-left: 5px;
+  }
+  input[type="submit"] {
+      float: right;
+      border: none;
+      background-color: #ecf0f1;
+      color: rgba(3,166,120,0.85);
+  }
+  input:focus {outline: none; }
+
+  #user_password_confirmation {
+    margin-bottom: 20px;
+  }
+  label[for="user_remember_me"] {
+    margin-top: 20px;
+    display: inline-block;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 40%;
+  }
+}
+
